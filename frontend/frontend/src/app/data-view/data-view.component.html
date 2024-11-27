@@ -1,0 +1,54 @@
+<div class="data-view-container">
+  <h2>Historial de Tasas de Cambio</h2>
+
+  <!-- Selección de moneda -->
+  <label for="currency">Selecciona una moneda:</label>
+  <select id="currency" [(ngModel)]="selectedCurrency" (change)="fetchRates()">
+    <option *ngFor="let currency of Object.keys(rates)" [value]="currency">
+      {{ currency }}
+    </option>
+  </select>
+
+  <!-- Filtro por rango de fechas -->
+  <div class="date-filters">
+    <label for="startDate">Desde:</label>
+    <input type="date" id="startDate" [(ngModel)]="startDate" (change)="updateChart()" />
+    <label for="endDate">Hasta:</label>
+    <input type="date" id="endDate" [(ngModel)]="endDate" (change)="updateChart()" />
+  </div>
+
+  <!-- Gráfico -->
+  <div class="chart-container">
+    <canvas baseChart
+            [data]="lineChartData"
+            [options]="lineChartOptions"
+            chartType="line">
+    </canvas>
+  </div>
+
+  <!-- Tabla de historial -->
+  <div class="backend-history">
+  <button (click)="fetchHistoryFromBackend()">Cargar Historial</button>
+
+  <table *ngIf="backendHistory.length > 0">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Moneda</th>
+        <th>Tasa</th>
+        <th>Cambio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let record of backendHistory">
+        <td>{{ record.date }}</td>
+        <td>{{ record.currency }}</td>
+        <td>{{ record.rate | number: '1.2-4' }}</td>
+        <td [class.positive]="record.difference > 0" [class.negative]="record.difference < 0">
+          {{ record.difference | number: '1.2-4' }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
