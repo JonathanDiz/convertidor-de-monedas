@@ -34,3 +34,8 @@ build/
 
 ### Environments
 .env
+
+### Node Modules
+/frontend/node_modules/
+
+
