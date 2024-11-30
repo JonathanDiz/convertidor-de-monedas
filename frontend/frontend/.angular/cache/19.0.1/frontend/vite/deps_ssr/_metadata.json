@@ -1,61 +1,104 @@
 {
+<<<<<<< HEAD
   "hash": "4ab17be6",
   "configHash": "5cb768a3",
   "lockfileHash": "1cae7934",
   "browserHash": "1446c19d",
+=======
+  "hash": "2e94e13c",
+  "configHash": "e516c975",
+  "lockfileHash": "1cae7934",
+  "browserHash": "1a186f01",
+>>>>>>> 8279b676 (Remove node_modules from version control)
   "optimized": {
     "@angular/common": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
+<<<<<<< HEAD
       "fileHash": "ec480a3a",
+=======
+      "fileHash": "f1831512",
+>>>>>>> 8279b676 (Remove node_modules from version control)
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
+<<<<<<< HEAD
       "fileHash": "3316a08a",
+=======
+      "fileHash": "0d7db721",
+>>>>>>> 8279b676 (Remove node_modules from version control)
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
+<<<<<<< HEAD
       "fileHash": "d5db8a1a",
+=======
+      "fileHash": "2dbc5dec",
+>>>>>>> 8279b676 (Remove node_modules from version control)
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
+<<<<<<< HEAD
       "fileHash": "3d5acb81",
+=======
+      "fileHash": "8d628b8a",
+>>>>>>> 8279b676 (Remove node_modules from version control)
       "needsInterop": false
     },
     "@angular/platform-server": {
       "src": "../../../../../../node_modules/@angular/platform-server/fesm2022/platform-server.mjs",
       "file": "@angular_platform-server.js",
+<<<<<<< HEAD
       "fileHash": "854be018",
+=======
+      "fileHash": "843fa876",
+>>>>>>> 8279b676 (Remove node_modules from version control)
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
+<<<<<<< HEAD
       "fileHash": "41e91c63",
+=======
+      "fileHash": "54f2f45a",
+>>>>>>> 8279b676 (Remove node_modules from version control)
       "needsInterop": false
     },
     "@angular/ssr": {
       "src": "../../../../../../node_modules/@angular/ssr/fesm2022/ssr.mjs",
       "file": "@angular_ssr.js",
+<<<<<<< HEAD
       "fileHash": "2de64afe",
+=======
+      "fileHash": "1813e8de",
+>>>>>>> 8279b676 (Remove node_modules from version control)
       "needsInterop": false
     },
     "@angular/ssr/node": {
       "src": "../../../../../../node_modules/@angular/ssr/fesm2022/node.mjs",
       "file": "@angular_ssr_node.js",
+<<<<<<< HEAD
       "fileHash": "af00143e",
+=======
+      "fileHash": "b245b8f0",
+>>>>>>> 8279b676 (Remove node_modules from version control)
       "needsInterop": false
     },
     "express": {
       "src": "../../../../../../node_modules/express/index.js",
       "file": "express.js",
+<<<<<<< HEAD
       "fileHash": "463aea06",
+=======
+      "fileHash": "5eee2d9d",
+>>>>>>> 8279b676 (Remove node_modules from version control)
       "needsInterop": true
     }
   },
