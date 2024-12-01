@@ -1,16 +1,21 @@
 {
-  "name": "convertidor-de-monedas",
+  "build": {
+    "command": "mvn package",
+    "directory": "./"
+  },
+  "start": {
+    "command": "java -jar target/app.jar"
+  },
   "plugins": [
     {
-      "name": "mysql",
-      "envs": {
-        "DATABASE_URL": "mysql://${{MYSQLUSER}}:${{MYSQLPASSWORD}}@${{MYSQLHOST}}:${{MYSQLPORT}}/${{MYSQLDATABASE}}"
-      }
+      "name": "mysql"
     }
   ],
   "envs": {
-    "PORT": "8080", 
-    "RAILWAY_ENVIRONMENT": "production",
-    "API_KEY": "${{API_KEY}}"
+    "JAVA_ENV": "production",
+    "DATABASE_URL": "mysql://user:password@host:port/database"
+  },
+  "deployments": {
+    "provider": "github"
   }
 }
