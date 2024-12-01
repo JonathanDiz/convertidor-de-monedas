@@ -1,0 +1,16 @@
+{
+  "name": "convertidor-de-monedas",
+  "plugins": [
+    {
+      "name": "mysql",
+      "envs": {
+        "DATABASE_URL": "mysql://${{MYSQLUSER}}:${{MYSQLPASSWORD}}@${{MYSQLHOST}}:${{MYSQLPORT}}/${{MYSQLDATABASE}}"
+      }
+    }
+  ],
+  "envs": {
+    "PORT": "8080", 
+    "RAILWAY_ENVIRONMENT": "production",
+    "API_KEY": "${{API_KEY}}"
+  }
+}
