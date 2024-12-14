@@ -9,13 +9,13 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 public class SomeSpecificConfig {
 	
 	// Configuración de DataSource para pruebas (usando H2)
-	@Bean
+	@Bean(name = "someSpecificDataSource")
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("org.h2.Driver");
 		dataSource.setUrl("jdbc:h2:mem:testdb");
 		dataSource.setUsername("sa");
 		dataSource.setPassword("password");
-		return dataSource;
+		return new DriverManagerDataSource();
 	}
 }

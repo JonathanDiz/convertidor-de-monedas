@@ -2,17 +2,12 @@ package com.jonathandiz.convertidor_de_monedas.config;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
-
-import com.jonathandiz.convertidor_de_monedas.config.SomeSpecificConfig;
 
 @SpringBootTest
-@ContextConfiguration(classes = {SomeSpecificConfig.class})
+public class ConvertidorDeMonedasApplicationTests {
 
-class ConvertidorDeMonedasApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
-
+    @Test
+    void contextLoads() {
+        // Prueba que se carga el contexto de la aplicación
+    }
 }

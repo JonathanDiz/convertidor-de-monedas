@@ -1,0 +1,22 @@
+{"properties": [
+  {
+    "name": "server.url",
+    "type": "java.lang.String",
+    "description": "A description for 'server.url'"
+  },
+  {
+    "name": "spring.datasource.initialize",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.initialize'"
+  },
+  {
+    "name": "environment.local",
+    "type": "java.lang.String",
+    "description": "A description for 'environment.local'"
+  },
+  {
+    "name": "environment.local",
+    "type": "java.lang.String",
+    "description": "A description for 'environment.local'"
+  }
+]}
