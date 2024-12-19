@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.function.IntPredicate;
 
-import com.jonathandiz.convertidor_de_monedas.utils.BigDecimal;
+import com.jonathandiz.convertidor_de_monedas.utils.CustomCurrency;
 
 @Entity
 @Table(name = "exchange_rate_history")
@@ -21,7 +21,7 @@ public class ExchangeRateHistoryEntity {
     private String currencyTo;
 
     @Column(name = "rate", nullable = false)
-    private BigDecimal rate;
+    private CustomCurrency rate;
 
     @Column(name = "exchange_date", nullable = false)
     private LocalDateTime exchangeDate;
@@ -31,7 +31,7 @@ public class ExchangeRateHistoryEntity {
     }
 
     // 🔥 Constructor con parámetros (útil para crear objetos de forma rápida)
-    public ExchangeRateHistoryEntity(Long id, String currencyFrom, String currencyTo, BigDecimal rate, LocalDateTime exchangeDate) {
+    public ExchangeRateHistoryEntity(Long id, String currencyFrom, String currencyTo, CustomCurrency rate, LocalDateTime exchangeDate) {
         this.id = id;
         this.currencyFrom = currencyFrom;
         this.currencyTo = currencyTo;
@@ -64,11 +64,11 @@ public class ExchangeRateHistoryEntity {
         this.currencyTo = currencyTo;
     }
 
-    public BigDecimal getRate() {
+    public CustomCurrency getRate() {
         return rate;
     }
 
-    public void setRate(BigDecimal rate) {
+    public void setRate(CustomCurrency rate) {
         this.rate = rate;
     }
 

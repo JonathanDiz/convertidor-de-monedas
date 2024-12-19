@@ -8,6 +8,4 @@ public class Usuario {
 	
 	@Id
 	private Long id;
-	private String nombre;
-	private String email;
 }

@@ -10,8 +10,6 @@ public class Currency {
 	@GeneratedValue
 	private Long id;
 	
-	private String name;
-	private double exchangeRate;
 	public void setName(String string) {
 		// TODO Auto-generated method stub
 		

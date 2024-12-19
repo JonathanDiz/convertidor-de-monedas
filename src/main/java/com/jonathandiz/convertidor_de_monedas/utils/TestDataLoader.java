@@ -21,7 +21,7 @@ public class TestDataLoader {
         history.setToCurrency("CLP");
 
         // Usar el nuevo BigDecimal
-        BigDecimal rate = new BigDecimal("875.50");
+        CustomCurrency rate = new CustomCurrency(0, "875.50");
         history.setRate(rate);
 
         history.setTimestamp("2024-12-14T10:00:00");
