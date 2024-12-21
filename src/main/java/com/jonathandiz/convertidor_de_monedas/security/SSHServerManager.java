@@ -1,4 +1,4 @@
-package com.jonathandiz.convertidor_de_monedas.config;
+package com.jonathandiz.convertidor_de_monedas.security;
 
 import java.io.BufferedReader;
 import java.io.IOException;
