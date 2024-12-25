@@ -1,33 +1,51 @@
 <div class="currency-converter">
-  <h1>Conversor de Monedas</h1>
+  <h1>Convertidor de Monedas</h1>
 
-  <form [formGroup]="currencyForm" (ngSubmit)="convert()">
-    <label for="fromCurrency">De:</label>
-    <select formControlName="fromCurrency" id="fromCurrency">
-      <option *ngFor="let currency of currencies" [value]="currency">
-        {{ currency }}
-      </option>
-    </select>
+  <form (submit)="convertCurrency(); $event.preventDefault()">
+    <div>
+      <label for="fromCurrency">De:</label>
+      <input
+        id="fromCurrency"
+        type="text"
+        [(ngModel)]="fromCurrency"
+        name="fromCurrency"
+        placeholder="Ej: USD"
+        required
+      />
+    </div>
 
-    <label for="toCurrency">A:</label>
-    <select formControlName="toCurrency" id="toCurrency">
-      <option *ngFor="let currency of currencies" [value]="currency">
-        {{ currency }}
-      </option>
-    </select>
+    <div>
+      <label for="toCurrency">A:</label>
+      <input
+        id="toCurrency"
+        type="text"
+        [(ngModel)]="toCurrency"
+        name="toCurrency"
+        placeholder="Ej: EUR"
+        required
+      />
+    </div>
 
-    <label for="amount">Cantidad:</label>
-    <input
-      type="number"
-      id="amount"
-      formControlName="amount"
-      placeholder="Ingresa la cantidad"
-    />
+    <div>
+      <label for="amount">Monto:</label>
+      <input
+        id="amount"
+        type="number"
+        [(ngModel)]="amount"
+        name="amount"
+        placeholder="Ej: 100"
+        required
+      />
+    </div>
 
-    <button type="submit" [disabled]="currencyForm.invalid">Convertir</button>
+    <button type="submit">Convertir</button>
   </form>
 
-  <div *ngIf="convertedAmount !== null">
-    <h2>Resultado: {{ convertedAmount | number:'1.2-2' }} {{ currencyForm.value.toCurrency }}</h2>
+  <div *ngIf="result" class="result">
+    <p>{{ result }}</p>
+  </div>
+
+  <div *ngIf="error" class="error">
+    <p>{{ error }}</p>
   </div>
 </div>

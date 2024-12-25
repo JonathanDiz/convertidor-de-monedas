@@ -1,37 +1,51 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-currency-converter',
-  standalone: true, // Define como componente standalone
-  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './currency-converter.component.html',
-  styleUrls: ['./currency-converter.component.less'],
+  styleUrls: ['./currency-converter.component.css']
 })
 export class CurrencyConverterComponent {
-  currencyForm!: FormGroup;
-  currencies: string[] = ['USD', 'EUR', 'CLP', 'JPY', 'GBP'];
-  convertedAmount: number | null = null;
+  fromCurrency: string = '';
+  toCurrency: string = '';
+  amount: number | null = null;
+  result: string = '';
+  error: string = '';
 
-  constructor(private fb: FormBuilder) {
-    // Inicializa el formulario reactivo
-    this.currencyForm = this.fb.group({
-      fromCurrency: ['USD', Validators.required],
-      toCurrency: ['EUR', Validators.required],
-      amount: [1, [Validators.required, Validators.min(0.01)]],
-    });
-  }
+  private apiUrl = 'http://localhost:8080/api/convert'; // Cambia según tu endpoint backend
+  private bearerToken = 'TU_BEARER_TOKEN'; // Sustituye por el token real
 
-  convert(): void {
-    if (this.currencyForm.valid) {
-      const { fromCurrency, toCurrency, amount } = this.currencyForm.value;
+  async convertCurrency() {
+    this.result = '';
+    this.error = '';
 
-      // Simula una tasa de cambio (reemplaza esto con la integración de la API)
-      const exchangeRate = 0.85; // Ejemplo estático
-      this.convertedAmount = amount * exchangeRate;
+    if (!this.fromCurrency || !this.toCurrency || !this.amount) {
+      this.error = 'Por favor, completa todos los campos.';
+      return;
+    }
 
-      console.log(`Convertido: ${amount} ${fromCurrency} a ${this.convertedAmount} ${toCurrency}`);
+    try {
+      const response = await fetch(this.apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${this.bearerToken}`,
+        },
+        body: JSON.stringify({
+          fromCurrency: this.fromCurrency,
+          toCurrency: this.toCurrency,
+          amount: this.amount,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error ${response.status}: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      this.result = `Resultado: ${data.convertedAmount} ${data.currencyCode}`;
+    } catch (error: any) {
+      this.error = error.message || 'Ha ocurrido un error inesperado.';
     }
   }
 }

@@ -16,4 +16,6 @@ public interface ExchangeRateHistoryRepository extends JpaRepository<ExchangeRat
 	List<ExchangeRateHistoryModel> findByTimestampBefore(LocalDateTime timestamp);
 
 	ExchangeRateHistoryEntity save(com.jonathandiz.convertidor_de_monedas.entity.ExchangeRateHistoryEntity exchangeRateHistory);
+
+	Object findRateByCurrencies(String fromCurrency, String toCurrency);
 }

@@ -1,5 +1,7 @@
 package com.jonathandiz.convertidor_de_monedas.utils;
 
+import java.util.Optional;
+
 import com.jonathandiz.convertidor_de_monedas.dto.ExchangeRateHistoryDto;
 import com.jonathandiz.convertidor_de_monedas.model.ExchangeRateHistoryModel;
 
@@ -12,5 +14,10 @@ public class DtoConverter {
 		dto.setFromCurrency(history.getTargetCurrency());
 		dto.setRate(history.getRate());
 		return dto;
+	}
+
+	public static Object toDTO(Optional<ExchangeRateHistoryModel> exchangeRateHistoryById) {
+		// TODO Auto-generated method stub
+		return null;
 	} 
 }
