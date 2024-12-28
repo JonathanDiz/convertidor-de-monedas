@@ -1,51 +1,35 @@
-<div class="currency-converter">
-  <h1>Convertidor de Monedas</h1>
+<div>
+  <label>
+    De:
+    <input
+      type="text"
+      [(ngModel)]="fromCurrency"
+      placeholder="De moneda"
+    />
+  </label>
+  <label>
+    A:
+    <input
+      type="text"
+      [(ngModel)]="toCurrency"
+      placeholder="A moneda"
+    />
+  </label>
+  <label>
+    Monto:
+    <input
+      type="number"
+      [(ngModel)]="amount"
+      placeholder="Monto"
+    />
+  </label>
 
-  <form (submit)="convertCurrency(); $event.preventDefault()">
-    <div>
-      <label for="fromCurrency">De:</label>
-      <input
-        id="fromCurrency"
-        type="text"
-        [(ngModel)]="fromCurrency"
-        name="fromCurrency"
-        placeholder="Ej: USD"
-        required
-      />
-    </div>
-
-    <div>
-      <label for="toCurrency">A:</label>
-      <input
-        id="toCurrency"
-        type="text"
-        [(ngModel)]="toCurrency"
-        name="toCurrency"
-        placeholder="Ej: EUR"
-        required
-      />
-    </div>
-
-    <div>
-      <label for="amount">Monto:</label>
-      <input
-        id="amount"
-        type="number"
-        [(ngModel)]="amount"
-        name="amount"
-        placeholder="Ej: 100"
-        required
-      />
-    </div>
-
-    <button type="submit">Convertir</button>
-  </form>
+  <button (click)="convert()">Convertir</button>
 
   <div *ngIf="result" class="result">
-    <p>{{ result }}</p>
+    Resultado: {{ result }}
   </div>
-
   <div *ngIf="error" class="error">
-    <p>{{ error }}</p>
+    Error: {{ error }}
   </div>
 </div>

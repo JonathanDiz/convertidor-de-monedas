@@ -1,149 +1,88 @@
-// Variables globales
-@primary-color: #4caf50; // Verde para confianza y acción
-@secondary-color: #ffffff; 
-@accent-color: #ff9800; // Naranja para acentos y botones
-@background-color: #f9f9f9; 
-@text-color: #2e2e2e; 
-@error-color: #f44336; // Rojo para errores
-@border-color: #e0e0e0;
-@hover-color: darken(@primary-color, 10%);
-@font-family: 'Inter', sans-serif;
-
-// Ajuste de tamaños y espacios
-@padding: 12px;
-@border-radius: 8px;
-@transition-speed: 0.3s;
-
-// Estructura principal
-.currency-converter {
-  max-width: 450px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: @background-color;
-  border: 1px solid @border-color;
-  border-radius: @border-radius;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  font-family: @font-family;
-
-  h1 {
-    text-align: center;
-    color: @primary-color;
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-
-    label {
-      color: @text-color;
-      font-size: 1rem;
-      font-weight: 500;
-    }
-
-    input,
-    select {
-      width: 100%;
-      padding: @padding;
-      border: 1px solid @border-color;
-      border-radius: @border-radius;
-      font-size: 1rem;
-      transition: border-color @transition-speed;
-
-      &:focus {
-        border-color: @primary-color;
-        box-shadow: 0 0 6px lighten(@primary-color, 40%);
-        outline: none;
-      }
-    }
-
-    button {
-      width: 100%;
-      background-color: @primary-color;
-      color: @secondary-color;
-      padding: @padding;
-      border: none;
-      border-radius: @border-radius;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color @transition-speed, transform @transition-speed;
-
-      &:hover {
-        background-color: @hover-color;
-        transform: translateY(-2px);
-      }
-
-      &:disabled {
-        background-color: lighten(@primary-color, 30%);
-        cursor: not-allowed;
-      }
-    }
-  }
-
-  // Mensaje de error para validación
-  .error-message {
-    color: @error-color;
-    font-size: 0.9rem;
-    margin-top: -10px;
-    margin-bottom: 10px;
-    text-align: left;
-  }
-
-  // Resultado de la conversión
-  .result {
-    margin-top: 2rem;
-    padding: 1rem;
-    background-color: lighten(@background-color, 5%);
-    border: 1px solid @border-color;
-    border-radius: @border-radius;
-    text-align: center;
-
-    h2 {
-      color: @primary-color;
-      font-size: 1.8rem;
-      font-weight: bold;
-      margin: 0;
-    }
-
-    .info {
-      font-size: 1rem;
-      color: @text-color;
-      margin-top: 0.5rem;
-    }
-  }
+/* General styles for the container */
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #000; /* Black background */
+  color: #d4af37; /* Golden text */
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-// Animaciones para mejorar la experiencia
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Label styles */
+label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #d4af37;
+}
+
+/* Input fields */
+input {
+  padding: 10px;
+  border: 2px solid #d4af37;
+  border-radius: 4px;
+  background-color: #000;
+  color: #d4af37;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+input::placeholder {
+  color: #d4af37;
+  opacity: 0.7;
+}
+
+input:focus {
+  outline: none;
+  border-color: #ffd700; /* Lighter gold for focus */
+}
+
+/* Button styles */
+button {
+  padding: 10px 20px;
+  background-color: #d4af37;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ffd700; /* Lighter gold on hover */
+}
+
+button:active {
+  background-color: #b8860b; /* Darker gold on click */
+}
+
+/* Result styles */
+.result, .error {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
 }
 
 .result {
-  animation: fadeIn @transition-speed ease-out;
+  background-color: #006400; /* Dark green background */
+  color: #d4af37;
 }
 
-// Responsividad
-@media (max-width: 768px) {
-  .currency-converter {
-    padding: 1.5rem;
-
-    h1 {
-      font-size: 1.5rem;
-    }
-
-    button {
-      font-size: 1rem;
-    }
-  }
+.error {
+  background-color: #8b0000; /* Dark red background */
+  color: #d4af37;
 }
